@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { CheckCircle, XCircle, Shield, Award, Users, TrendingUp, FileText, Star, Network, UserCheck, Eye, Filter, BookOpen, GitBranch, Zap } from 'lucide-react';
 
