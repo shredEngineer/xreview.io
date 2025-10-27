@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { CheckCircle, XCircle, Shield, Award, Users, TrendingUp, FileText, Star, Network, UserCheck, Eye, Filter, BookOpen, GitBranch, Zap } from 'lucide-react';
+import { CheckCircle, XCircle, Shield, Award, Users, FileText, Star, Network, UserCheck, Eye, Filter, BookOpen, GitBranch, Zap } from 'lucide-react';
 
 export default function XReviewInstitutional() {
   const [activeTab, setActiveTab] = useState('browse');
   const [selectedWork, setSelectedWork] = useState(null);
-  const [userReputation, setUserReputation] = useState(750);
+  const [userReputation] = useState(750);
   const [showTrustNetwork, setShowTrustNetwork] = useState(false);
   const [filterByTrust, setFilterByTrust] = useState(true);
 
@@ -301,6 +301,7 @@ export default function XReviewInstitutional() {
     }
   ]);
 
+  // TODO: Fix "Warning:(304, 40) ESLint: 'score' is defined but never used. (@typescript-eslint/no-unused-vars)" — is the property not displayed yet? don't leave any behind!
   const TrustBadge = ({ status, count, score, trustScore, trustedPeers }) => {
     if (status === 'verified') {
       return (
@@ -901,7 +902,7 @@ export default function XReviewInstitutional() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">The Challenge</h3>
                 <p className="text-gray-700 leading-relaxed mb-6">
                   Traditional academic peer review suffers from critical scalability issues. 
-                  The "authority-availability product" is fixed: only a limited number of qualified reviewers 
+                  The &quot;authority-availability product&quot; is fixed: only a limited number of qualified reviewers
                   have both the expertise and time to review papers. This creates bottlenecks, delays, and gatekeeping.
                 </p>
 
@@ -975,8 +976,8 @@ export default function XReviewInstitutional() {
 
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-8">Governance</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  xreview operates as a decentralized platform. The protocol is transparent and auditable. 
-                  Core review standards and algorithms are community-governed to ensure scientific rigor 
+                  xreview operates as a decentralized platform with protocols that are transparent, auditable, and immutable.
+                  Core review standards and algorithms are community-governed to ensure scientific rigor
                   and prevent gaming of the system.
                 </p>
               </div>
@@ -1052,7 +1053,7 @@ export default function XReviewInstitutional() {
                   <span>First Degree Connections</span>
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
-                  These researchers' reviews carry the highest weight in your feed.
+                  These researchers&apos; reviews carry the highest weight in your feed.
                 </p>
                 <div className="space-y-3">
                   {trustedPeers.filter(p => p.trustDegree === 1).map((peer, idx) => (
@@ -1180,8 +1181,8 @@ export default function XReviewInstitutional() {
             </div>
             <div className="flex gap-6 text-sm text-gray-600">
               <a href="#" className="hover:text-gray-900">Documentation</a>
-              <a href="#" className="hover:text-gray-900">GitHub</a>
-              <a href="#" className="hover:text-gray-900">Contact</a>
+              <a href="https://github.com/shredEngineer/xreview.io" className="hover:text-gray-900">GitHub</a>
+              <a href="mailto:paul@wilhelm.dev" className="hover:text-gray-900">Contact</a>
             </div>
           </div>
         </div>
