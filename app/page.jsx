@@ -268,6 +268,7 @@ export default function XReviewInstitutional() {
   const [userReputation] = useState(750);
   const [showTrustNetwork, setShowTrustNetwork] = useState(false);
   const [filterByTrust, setFilterByTrust] = useState(true);
+  const [showInfoBanner, setShowInfoBanner] = useState(true); // click-to-dismiss for the info box
 
   // Trusted Researchers in Your Network
   const [trustedPeers] = useState([
@@ -571,9 +572,7 @@ export default function XReviewInstitutional() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3">
-                <div className="bg-gray-900 p-2.5 rounded-md">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
+                <img src="/favicon.png" alt="xreview logo" className="w-11 h-11 rounded-md" />
                 <div>
                   <h1 className="text-2xl font-semibold text-gray-900">
                     xreview
@@ -657,38 +656,46 @@ export default function XReviewInstitutional() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* Info Banner */}
-        <div className="bg-white border border-gray-200 rounded-lg p-8 mb-8 shadow-sm">
-          <div className="flex items-start gap-6">
-            <div className="bg-gray-100 p-4 rounded-md">
-              <GitBranch className="w-7 h-7 text-gray-900" />
-            </div>
-            <div className="flex-1">
-              <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                Your Personal Scientific Trust Network
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                xreview uses composable trust networks to solve the academic peer review crisis.
-                You see only research verified by scientists you personally trust.
-                This distributes authority while maintaining rigorous quality standards.
-              </p>
-              <div className="flex gap-6 text-sm">
-                <div className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Open review process</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Your network, your standards</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Transparent methodology</span>
+        {/* Info Banner (click to dismiss) */}
+        {showInfoBanner && (
+          <div
+            onClick={() => setShowInfoBanner(false)}
+            role="button"
+            aria-label="Dismiss trust network info"
+            className="bg-white border border-gray-200 rounded-lg p-8 mb-8 shadow-sm cursor-pointer hover:border-gray-300 transition-colors select-none"
+            title="Click to dismiss"
+          >
+            <div className="flex items-start gap-6">
+              <div className="bg-gray-100 p-4 rounded-md">
+                <GitBranch className="w-7 h-7 text-gray-900" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                  Your Personal Scientific Trust Network
+                </h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  xreview uses composable trust networks to solve the academic peer review crisis.
+                  You see only research verified by scientists you personally trust.
+                  This distributes authority while maintaining rigorous quality standards.
+                </p>
+                <div className="flex gap-6 text-sm">
+                  <div className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Open review process</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Your network, your standards</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Transparent methodology</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Browse Tab */}
         {activeTab === 'browse' && (

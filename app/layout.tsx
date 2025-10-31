@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "xreview | Decentralized Scientific Review",
-  description: "xreview uses decentralized composable trust networks to solve the academic peer review crisis."
+  description: "xreview uses decentralized composable trust networks to solve the academic peer review crisis.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
